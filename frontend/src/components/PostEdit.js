@@ -21,7 +21,6 @@ class PostEdit extends Component {
     let title = this.titleInput.current
     let body = this.bodyInput.current
     let author = this.authorInput.current
-    let category = this.props.category ? this.props.category : this.categoryInput.current.value
     if(title.value.length * author.value.length * body.value.length === 0){
       return false
     }
@@ -30,6 +29,7 @@ class PostEdit extends Component {
         this.setState({redirect: `/${this.props.post.category}/${this.props.post.id}`})
       })
     } else {
+      let category = this.props.category || this.categoryInput.current.value
       addPost(category, title.value, body.value, author.value).then((id) => {
         this.setState({redirect: `/${category}/${id}`})
       })
