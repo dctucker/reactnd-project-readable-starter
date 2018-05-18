@@ -14,6 +14,9 @@ class Sort extends Component {
     this.setState({sort: key, reverse: reverse})
   }
   render(){
+    /*
+      You could apply a destructuring at this.props and this.state at the begin of the render(). This way, your code will looks more easy to read.
+    */
     return (
       <div className='sort'>
         Sort by:

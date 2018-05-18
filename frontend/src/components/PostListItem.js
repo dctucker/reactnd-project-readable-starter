@@ -10,6 +10,10 @@ function formatTimestamp(timestamp){
 class PostListItem extends Component {
   render(){
     const { post, vote, category, onDelete } = this.props
+    /* This component don't use the state feature from React components.
+      Because of this, you can declare this component as stateless. Stateless components have a lot of benefits.
+      You can learn more about these benefits here: https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc
+    */
     if(post.deleted || ! post.title){
       return (
         <li>

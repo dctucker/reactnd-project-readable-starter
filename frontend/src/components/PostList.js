@@ -49,6 +49,7 @@ const mapStateToProps = (state, ownProps) => {
   const posts = ownProps.path ? state.posts.filter((post) => post.category === ownProps.path) : state.posts
   return {
     category: filteredCats[0],
+    // You could use .find() instead of .filter()[0]. The find() function will do exactly this: return the first element or undefined.
     posts: posts
   }
 }

@@ -8,6 +8,11 @@ class PostEdit extends Component {
   titleInput = React.createRef()
   authorInput = React.createRef()
   categoryInput = React.createRef()
+  /*
+    I don't think this is the best way to you manipulate these elements values.
+    The correct approach for React, is to declare a state for each field, and then use it at each component.
+    This will make your code more verbose, but will use all the technology that React was purposed to do.
+  */
   state = {
     redirect: false
   }
@@ -45,6 +50,9 @@ class PostEdit extends Component {
     return (
       <div>
         <h1>{this.props.category || this.props.post.category}</h1>
+        {/*
+          You are not using the post variable that you destructed at line 42. Also, you could destructure more variables, like category and postId.
+        */}
         <h4>{this.props.postId ? "Edit Post" : "New Post"}</h4>
         <div className="post-edit">
           {! this.props.category && ! this.props.postId && (
@@ -78,6 +86,7 @@ const mapStateToProps = (state, ownProps) => (
   } : {
     categories: state.categories,
     post: state.posts.filter((post) => post.id === ownProps.postId)[0],
+    // You could use .find() instead of .filter()[0]. The find() function will do exactly this: return the first element or undefined.
   }
 )
 const mapDispatchToProps = (dispatch) => ({

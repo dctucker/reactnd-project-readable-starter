@@ -38,3 +38,5 @@ export const post = ({match}) => (
     <Post postId={match.params.post_id} />
   </div>
 )
+// You could move all of these components to a separate file. This way, you could have a view per file. In big projects, this is the more interesting solution, because it facilitates the developer experience in editing separate and smaller files.
+// > but I'm not doing that because I don't need to break a forty-line file into five separate ten-line files

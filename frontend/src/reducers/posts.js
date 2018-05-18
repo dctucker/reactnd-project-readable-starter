@@ -2,6 +2,12 @@ import { type } from '../actions/posts'
 import { slicePush, mapUpdate } from './helpers'
 
 export default function posts(state = [], action) {
+  /*
+    You could declare this function as arrow function.
+    In this case, this will not influence in anything, but in some cases, this can be helpful.
+    Arrow functions automatically binds the current context to the function. This way, you can avoid bind() calls in your code.
+  */
+  
   switch(action.type){
     case type.GET_POSTS:
       return action.payload
